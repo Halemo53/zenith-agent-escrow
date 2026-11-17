@@ -1,0 +1,97 @@
+{
+  "contractName": "AgentEscrow",
+  "chainId": 936485,
+  "network": "Zenith EVM Testnet",
+  "address": "0x7F4e9B20c8A1d5E36089A4B2190c215C98E4a250",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        { "indexed": true, "internalType": "uint256", "name": "jobId", "type": "uint256" },
+        { "indexed": true, "internalType": "address", "name": "client", "type": "address" },
+        { "indexed": false, "internalType": "string", "name": "title", "type": "string" },
+        { "indexed": false, "internalType": "uint256", "name": "reward", "type": "uint256" }
+      ],
+      "name": "JobCreated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        { "indexed": true, "internalType": "uint256", "name": "jobId", "type": "uint256" },
+        { "indexed": true, "internalType": "address", "name": "freelancer", "type": "address" },
+        { "indexed": false, "internalType": "string", "name": "workUrl", "type": "string" }
+      ],
+      "name": "WorkSubmitted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        { "indexed": true, "internalType": "uint256", "name": "jobId", "type": "uint256" },
+        { "indexed": true, "internalType": "address", "name": "recipient", "type": "address" },
+        { "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" }
+      ],
+      "name": "FundsReleased",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        { "internalType": "string", "name": "title", "type": "string" },
+        { "internalType": "string", "name": "description", "type": "string" },
+        { "internalType": "uint256", "name": "reward", "type": "uint256" }
+      ],
+      "name": "createJob",
+      "outputs": [
+        { "internalType": "uint256", "name": "jobId", "type": "uint256" }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "jobId", "type": "uint256" },
+        { "internalType": "string", "name": "workUrl", "type": "string" }
+      ],
+      "name": "submitWork",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "jobId", "type": "uint256" }
+      ],
+      "name": "releaseFunds",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "jobId", "type": "uint256" }
+      ],
+      "name": "refundClient",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "jobId", "type": "uint256" }
+      ],
+      "name": "getJob",
+      "outputs": [
+        { "internalType": "string", "name": "title", "type": "string" },
+        { "internalType": "string", "name": "description", "type": "string" },
+        { "internalType": "address", "name": "client", "type": "address" },
+        { "internalType": "address", "name": "freelancer", "type": "address" },
+        { "internalType": "uint256", "name": "reward", "type": "uint256" },
+        { "internalType": "uint8", "name": "status", "type": "uint8" },
+        { "internalType": "string", "name": "workUrl", "type": "string" }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ]
+}
